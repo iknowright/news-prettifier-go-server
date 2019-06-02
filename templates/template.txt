@@ -1,0 +1,22 @@
+// index
+{{ .Owner }}
+{{ .Size }}
+{{ .Color }}
+
+<select>
+    {{range .Articles}}
+        <option>{{ .Article_ID }}</option>
+    {{end}}
+</select>
+
+{{.Current_Article.Title}}
+{{.Current_Article.Author}}
+{{.Current_Article.Origin}}
+
+// home
+
+{{.Title}}
+{{.Author}}
+{{.Content}}
+{{.Origin}}
+/login/{{ .Article_ID }}
