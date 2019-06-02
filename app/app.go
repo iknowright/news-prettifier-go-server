@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"log"
 
-	helpers "../helpers"
+	helpers "news-prettifier-go-server/helpers"
  
 	"github.com/gorilla/securecookie"
     "text/template"
@@ -91,6 +91,8 @@ func (a *App) InitializeRoutes() {
 
     // serve static
     a.Router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+    // a.Router.PathPrefix("/templates/").Handler(http.StripPrefix("/templates/", http.FileServer(http.Dir("templates"))))
+    
  
     http.Handle("/", a.Router)
     http.ListenAndServe(":8000", nil)

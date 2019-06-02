@@ -1,1 +1,1 @@
-web: bin/server
+web: bin/news-prettifier-go-server
