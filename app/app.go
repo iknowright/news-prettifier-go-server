@@ -8,10 +8,9 @@ import (
 	"database/sql"
 	_ "github.com/lib/pq"
 	"fmt"
-    "log"
-    "os"
+	"log"
 
-	helpers "news-prettifier-go-server/helpers"
+	helpers "../helpers"
  
 	"github.com/gorilla/securecookie"
     "text/template"
@@ -53,16 +52,6 @@ func (a *App) Initialize() {
 	a.InitializeRoutes()
 }
 
-func GetPort() string {
-    var port = os.Getenv("PORT")
-    // Set a default port if there is nothing in the environment
-    if port == "" {
-        port = "4747"
-        fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
-    }
-    return ":" + port
-}
-
 //Run method
 func (a *App) Run(addr string) {
 	// ListenAndServer needs a port string and Handler which requires ServeHTTP(ResponseWriter, *Request) method
@@ -93,20 +82,21 @@ func (a *App) InitializeRoutes() {
     a.Router.HandleFunc("/register", a.RegisterHandler).Methods("POST")
  
     // logout
-    a.Router.HandleFunc("/logout/", a.LogoutHandler).Methods("POST")
-    a.Router.HandleFunc("/logout/{uuid:[a-f0-9]+-[a-f0-9]+-[a-f0-9]+-[a-f0-9]+-[a-f0-9]+}", a.LogoutHandler).Methods("POST")
+    a.Router.HandleFunc("/logout/", a.LogoutHandler).Methods("GET")
+    a.Router.HandleFunc("/logout/{uuid:[a-f0-9]+-[a-f0-9]+-[a-f0-9]+-[a-f0-9]+-[a-f0-9]+}", a.LogoutHandler).Methods("GET")
     
 
     // article post
     a.Router.HandleFunc("/article", a.createArticle).Methods("POST")
 
+    // article update settings
+    a.Router.HandleFunc("/article_settings", a.updateAccountSettings).Methods("POST")    
+
     // serve static
     a.Router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-    // a.Router.PathPrefix("/templates/").Handler(http.StripPrefix("/templates/", http.FileServer(http.Dir("templates"))))
-    
  
     http.Handle("/", a.Router)
-    http.ListenAndServe(GetPort(), nil)
+    http.ListenAndServe(":8000", nil)
 }
 
 
@@ -294,7 +284,23 @@ func (a *App) IndexPageHandler(response http.ResponseWriter, request *http.Reque
             fmt.Println("error in get multiple article")
             return
         }
-
+        history_used := false
+        for _, elem := range user_articles {
+            if elem.Title == curr_article.Title {
+                history_used = true
+                break;
+            }
+        }
+        if !history_used {
+            if err := curr_article.updateArticleUser(a.DB, userName); err != nil {
+                switch err {
+                case sql.ErrNoRows:
+                    fmt.Println("no such article")
+                default:
+                    fmt.Println("bad query")
+                }
+            }
+        }
         loginData := login_data{
             Owner: userName,
             Size: user.Size,
@@ -404,4 +410,22 @@ func (a *App) createArticle(w http.ResponseWriter, r *http.Request) {
 	}
 
 	respondWithJSON(w, http.StatusCreated, n)
+}
+
+func (a *App) updateAccountSettings(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("POST update account setting handler")
+    var n account
+	decoder := json.NewDecoder(r.Body)
+	if err := decoder.Decode(&n); err != nil {
+		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
+		return
+	}
+    defer r.Body.Close()
+    
+    fmt.Println(n)
+	if err := n.updateAccountSettings(a.DB); err != nil {
+		fmt.Println("Can't update size and color")
+		return
+	}
+
 }

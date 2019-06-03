@@ -26,9 +26,6 @@ body {
             
             form {
                     display: inline-block;
-                    position: fixed;
-                    bottom: 150px;
-                    left: 80px;
                     text-align: center;
                     color: rgb(230, 147, 23);
                     text-decoration-style: solid;
@@ -43,9 +40,7 @@ body {
             .container2{
                 text-align: center;
                 color: rgb(224, 202, 5);
-                position: fixed;
-                bottom: 70px;
-                left:90px;
+                
             }
 
            
@@ -59,7 +54,7 @@ body {
 <div class="container-fluid" style="height: 550px"> 
        
 
-        <form method="post" style="font-style: italic" action="/register"> 
+        <form method="post" id="signupform"style="font-style: italic" action="/register"> 
             <h3>Sign Up</h3>
             <div class="form-group">
                     <input type="text" class="form-control" id="userame" name="username" placeholder="Enter Username.">
@@ -78,19 +73,35 @@ body {
                 <small id="confirmPassword" class="form-text text-muted">Sharing your password is dangerous!!!</small>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
-
-        <div class="container2  width: 66rem;">
-    
-                <h7>Already have an account ?</h7>
-                <button type="button" id="loginbutton" class="btn btn-outline-danger text-danger"><a href="/login/">Sign In</a></button>
            
-        </div>
-        
+            <div class="container2" >
+                    <br>
+                    <br>
+                    <h7>Already have an account ?</h7>
+                    <button type="button" id="loginbutton" class="btn btn-outline-danger text-danger"><a href="/login/">Sign In</a></button>
+               
+            </div>
+        </form>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+        var width = $(document).width();
+        var height = $(document).height();
+        var form_width = $("#signupform").width();
+        var form_height = $("#signupform").height();
+        var a = width/7 ;
+        var b =height/2 ;
+        var c = form_width/2 ;
+        var d =form_height/2 ;
+        
+
+        $("#signupform").css("position","fixed");
+        $("#signupform").css("left",a-c);
+        $("#signupform").css("top",b-d-50);
+       
+       
+    </script>
 </body>
 </html>

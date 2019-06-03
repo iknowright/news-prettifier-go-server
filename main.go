@@ -1,7 +1,7 @@
 package main
 
 import (
-    app "news-prettifier-go-server/app"
+    app "./app"
 )
 func main() {
 	a := app.App{}

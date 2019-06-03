@@ -8,12 +8,14 @@
 
   <!-- Bootstrap CSS -->
   <!-- <link rel="stylesheet" href="css.css"> -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
   <style>
     body {
-      background-image: url("/static/1.jpg");
-      background-color: #8ff010;
+      background-color: #e0ebd2;
       background-repeat: no-repeat;
       height: auto;
       /* You must set a specified height */
@@ -55,7 +57,7 @@
     }
 
     #loginbutton {
-      position: fixed;
+      position: absolute;
       font-size: 18px;
       border:lightcyan;
       outline:lightgreen;
@@ -114,7 +116,7 @@
         <div class="p-20 flex-lg-{grow|shrink}-1 bd-highlight">
 
           <div class="p-3 mb-3 text-white" ; ondblclick="Origin()">
-            <h1>In pictures: Donald Trump enjoys sumo tournament in Japan
+            <h1>{{.Title}}
               
             </h1>
           </div>
@@ -168,8 +170,8 @@
 
       <div class=" col-auto">
 
-        <div style="color:rgba(8, 238, 77, 0.952);" ; ondblclick="Small()">
-          <p>Text background colour</p>
+        <div style="color:rgba(33, 13, 82, 0.952);" ; ondblclick="Small()">
+          <p>Text background colour :</p>
         </div>
 
       </div>
@@ -211,69 +213,7 @@
         <div id="demo" style="height: auto; background-color: rgba(249, 248, 252, 0.822); ">
           <div class="h-100 d-inline-block" style="width:1100px;">
             <div id="demo1" style="color:rgba(1, 5, 14, 0.952);">
-              <p> Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                Japan, describing the event as "an incredible evening".
-
-                Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                Japan, describing the event as "an incredible evening".
-
-                Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                Japan, describing the event as "an incredible evening".
-              </p>
-              <p>
-                MDonald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing
-                the event as "an incredible evening".
-                Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                Japan, describing the event as "an incredible evening".
-
-                Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                Japan, describing the event as "an incredible evening".
-                Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                Japan, describing the event as "an incredible evening".
-              </p>
-              <p>
-                M Donald Trump has attended a sumo wrestling tournament during his four-day visit to Japan, describing
-                the event as "an incredible evening".
-                Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                Japan, describing the event as "an incredible evening".
-
-                Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                Japan, describing the event as "an incredible evening".
-                Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                Japan, describing the event as "an incredible evening".
-
-                Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                Japan, describing the event as "an incredible evening".
-                Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                Text: US Preside
-                Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-                Text: US President Donald Trump has attended a sumo wrestling tournament during his four-day visit to
-                Japan, describing the event as "an incredible evening".
-
-                Mr Trump and his wife, Melania, sat alongside Japanese PM Shinzo Abe for the Summer Grand Sumo
-                Tournament in Tokyo and Mr Trump later presented a prize to the winner.
-
-              </p>
+              <p> {{.Content}} </p>
             </div>
           </div>
 
@@ -285,13 +225,13 @@
 
     <div class="row">
 
-      <div class="col-sm-7" style="color:rgba(199, 57, 156, 0.952);" ondblclick="Medium()">
+      <div class="col-sm-7" style="color:rgba(202, 41, 55, 0.952);" ondblclick="Medium()">
 
         <p class="h1">
 
           <dl>
             <dt>Author:</dt>
-            <dd>- Kevin Durant</dd>
+            <dd>- {{.Author}}</dd>
           </dl>
         </p>
 
@@ -300,8 +240,8 @@
       <div class="col-md-auto">
 
         <div class="d-flex bd-highlight mb-3" style="height: 80px;">
-          <div class="p-2 flex-fill bd-highlight" ondblclick="Smaller()" style="color:rgba(210, 247, 6, 0.952);">
-            <p> Article scrapped from ：<a href="https://www.bbc.com/news/world-asia-48414141" class="alert-link">Please
+          <div class="p-2 flex-fill bd-highlight" ondblclick="Smaller()" style="color:rgba(30, 6, 247, 0.952);">
+            <p> Article scrapped from ：<a href="{{.Origin}}" class="alert-link">Please
                 Click Me ~ 请点击我 ~</a>
             </p>
           </div>
@@ -438,9 +378,6 @@
   </script>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>

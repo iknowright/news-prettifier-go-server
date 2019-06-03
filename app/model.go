@@ -106,8 +106,8 @@ func (n *article) getArticle(db *sql.DB) error {
 	return db.QueryRow("SELECT title, author, content, origin FROM article WHERE article_id=$1", n.Article_ID).Scan(&n.Title, &n.Author, &n.Content, &n.Origin)
 }
 
-func (n *article) updateArticleUser(db *sql.DB) error {
-	_, err := db.Exec("UPDATE article SET username=$1 WHERE article_id=$2", n.Username, n.Article_ID)
+func (n *article) updateArticleUser(db *sql.DB , username string) error {
+	_, err := db.Exec("UPDATE article SET username=$1 WHERE article_id=$2", username, n.Article_ID)
 	return err
 }
 

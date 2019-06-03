@@ -1,63 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
     <style>
+        body {
+            background-image: url("login3.jpg");
+            background-color: #d9d2e6;
+            background-repeat: no-repeat;
+            height: auto;
+            /* You must set a specified height */
+            background-position: center;
+            /* Center the image */
+            background-repeat: no-repeat;
+            /* Do not repeat the image */
+            background-size: cover;
+            /* Resize the background image to cover the entire container */
+        }
 
-body {
-      background-image: url("/static/login3.jpg");
-      background-color: #d9d2e6;
-      background-repeat: no-repeat;
-      height: auto;
-      /* You must set a specified height */
-      background-position: center;
-      /* Center the image */
-      background-repeat: no-repeat;
-      /* Do not repeat the image */
-      background-size: cover;
-      /* Resize the background image to cover the entire container */
-    }
-            
-            form {
-                    display: inline-block;
-                    position: fixed;
-                    bottom: 250px;
-                    right: 500px;
-                    text-align: center;
-                    color: rgb(23, 230, 57);
-                    text-decoration-style: solid;
-                    z-index: 99;
-                    font-size: 18px;
-                    
-                    padding: 20px;
-                    border-radius: 50px;
-                }
-                
+        form {
+            display: inline-block;
 
-            .container2{
-                text-align: center;
-                color: rgb(156, 230, 73);
-                position: fixed;
-                bottom: 70px;
-                left:530px;
-            }
+            text-align: center;
+            color: rgb(23, 230, 57);
+            text-decoration-style: solid;
+            z-index: 99;
+            font-size: 18px;
+            padding: 20px;
+            border-radius: 50px;
+        }
 
-           
-        
+
+        .container2 {
+            text-align: center;
+            color: rgb(156, 230, 73);
+
+        }
     </style>
 </head>
 
 <body>
-       
-        
-<div class="container-fluid" style="height: 550px"> 
-       
+
+
+    <div class="container-fluid" id="form1" style="height: 550px">
+
 
         <form method="post" id="form" action="/login/{{.}}" style="font-style: italic">
             <h5>Sign In</h5>
@@ -68,20 +58,51 @@ body {
                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
                 <small id="emailHelp" class="form-text text-muted">Do not share your password with anyone!</small>
             </div>
-            <button type="submit" class="btn btn-primary">SIGN IN</button>
+            <button type="submit" class="btn btn-primary">
+                <a href="/register/"></a>SIGN IN</button>
+
+            <div class="container2" id="signup">
+                <br>
+                <br>
+                <h7>Have an account ?</h7>
+                <button type="button" id="signupbutton" class="btn btn-outline-danger text-danger">
+                    <a href="/register/{{.}}">Sign Up</a>
+                </button>
+
+            </div>
         </form>
 
 
-        <div class="container2  width: 66rem;">
-    
-                <h7>Have an account ?</h7>
-                <button type="button" class="btn btn-outline-primary"><a href="/register">Sign Up</a></button>
-           
-        </div>
-        
-</div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        var width = $(document).width();
+        var height = $(document).height();
+        var form_width = $("#form").width();
+        var form_height = $("#form").height();
+        var h = $("#signupbutton").width();
+        var a = width / 2;
+        var b = height / 2;
+        var c = form_width / 2;
+        var d = form_height / 2;
+        var e = h / 2;
+
+        $("#form").css("position", "fixed");
+        $("#form").css("left", a - c);
+        $("#form").css("top", b - d - 100);
+
+        $("#signup").css("position", "fixed");
+        $("#signup").css("left", a - h - 50);
+        $("#signup").css("bottom", "80px");
+    </script>
 </body>
+
 </html>
