@@ -9,6 +9,7 @@ import (
 	_ "github.com/lib/pq"
 	"fmt"
     "log"
+    "os"
 
 	helpers "news-prettifier-go-server/helpers"
  
@@ -52,11 +53,21 @@ func (a *App) Initialize() {
 	a.InitializeRoutes()
 }
 
+func GetPort() string {
+    var port = os.Getenv("PORT")
+    // Set a default port if there is nothing in the environment
+    if port == "" {
+        port = "4747"
+        fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
+    }
+    return ":" + port
+}
+
 //Run method
 func (a *App) Run(addr string) {
 	// ListenAndServer needs a port string and Handler which requires ServeHTTP(ResponseWriter, *Request) method
 	// The mux.Router implements ServeHTTP(response, *request)
-	log.Fatal(http.ListenAndServe(":8000", a.Router))
+	log.Fatal(http.ListenAndServe(GetPort(), a.Router))
 }
  
 func (a *App) InitializeRoutes() {
