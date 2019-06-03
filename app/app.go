@@ -67,7 +67,7 @@ func GetPort() string {
 func (a *App) Run(addr string) {
 	// ListenAndServer needs a port string and Handler which requires ServeHTTP(ResponseWriter, *Request) method
 	// The mux.Router implements ServeHTTP(response, *request)
-	log.Fatal(http.ListenAndServe(GetPort(), a.Router))
+	log.Fatal(http.ListenAndServe(":8000", a.Router))
 }
  
 func (a *App) InitializeRoutes() {
@@ -106,7 +106,7 @@ func (a *App) InitializeRoutes() {
     
  
     http.Handle("/", a.Router)
-    http.ListenAndServe(":8000", nil)
+    http.ListenAndServe(GetPort(), nil)
 }
 
 
