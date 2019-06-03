@@ -8,7 +8,7 @@ import (
 	"database/sql"
 	_ "github.com/lib/pq"
 	"fmt"
-	"log"
+    "log"
 
 	helpers "news-prettifier-go-server/helpers"
  
@@ -90,8 +90,10 @@ func (a *App) InitializeRoutes() {
     a.Router.HandleFunc("/article", a.createArticle).Methods("POST")
 
     // serve static
+    cwd, _ := os.Getwd()
+    
     a.Router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-    // a.Router.PathPrefix("/templates/").Handler(http.StripPrefix("/templates/", http.FileServer(http.Dir("templates"))))
+    a.Router.PathPrefix("/templates/").Handler(http.StripPrefix("/templates/", http.FileServer(http.Dir("templates"))))
     
  
     http.Handle("/", a.Router)

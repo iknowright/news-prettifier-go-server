@@ -1,0 +1,27 @@
+{
+	"ImportPath": "news-prettifier-go-server",
+	"GoVersion": "go1.12",
+	"GodepVersion": "v80",
+	"Deps": [
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Comment": "v1.7.1",
+			"Rev": "c5c6c98bc25355028a63748a498942a6398ccd22"
+		},
+		{
+			"ImportPath": "github.com/gorilla/securecookie",
+			"Comment": "v1.1.1-9-ge65cf8c",
+			"Rev": "e65cf8c5df817c89aeb47ecb46064e802e2de943"
+		},
+		{
+			"ImportPath": "github.com/lib/pq",
+			"Comment": "v1.0.0-12-gd6156e1",
+			"Rev": "d6156e141ac6c06345c7c73f450987a9ed4b751f"
+		},
+		{
+			"ImportPath": "github.com/lib/pq/oid",
+			"Comment": "v1.0.0-12-gd6156e1",
+			"Rev": "d6156e141ac6c06345c7c73f450987a9ed4b751f"
+		}
+	]
+}
