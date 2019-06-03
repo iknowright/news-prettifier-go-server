@@ -8,7 +8,8 @@ import (
 	"database/sql"
 	_ "github.com/lib/pq"
 	"fmt"
-	"log"
+    "log"
+    "os"
 
 	helpers "news-prettifier-go-server/helpers"
  
