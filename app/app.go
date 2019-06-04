@@ -221,7 +221,7 @@ type register_msg struct {
 // for POST
 func (a *App) RegisterHandler(w http.ResponseWriter, r *http.Request) {
     r.ParseForm()
- 
+    
     uName := r.FormValue("username")
     email := r.FormValue("email")
     pwd := r.FormValue("password")
@@ -231,6 +231,12 @@ func (a *App) RegisterHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(email)
 	fmt.Println(pwd)
 	fmt.Println(confirmPwd)
+    
+    _uName, _email, _pwd, _confirmPwd := false, false, false, false
+    _uName = !helpers.IsEmpty(uName)
+    _email = !helpers.IsEmpty(email)
+    _pwd = !helpers.IsEmpty(pwd)
+    _confirmPwd = !helpers.IsEmpty(confirmPwd)
     
     msg := register_msg {
         B0:0,
@@ -254,11 +260,6 @@ func (a *App) RegisterHandler(w http.ResponseWriter, r *http.Request) {
         msg.B3 = 1
     }
     msg.Msg = "This field cannot be blank!"
-    _uName, _email, _pwd, _confirmPwd := false, false, false, false
-    _uName = !helpers.IsEmpty(uName)
-    _email = !helpers.IsEmpty(email)
-    _pwd = !helpers.IsEmpty(pwd)
-    _confirmPwd = !helpers.IsEmpty(confirmPwd)
  
     if _uName && _email && _pwd && _confirmPwd {    
         if pwd == confirmPwd {
