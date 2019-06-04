@@ -78,7 +78,6 @@ func (u *account) deleteAccount(db *sql.DB) error {
 
 func (u *account) createAccount(db *sql.DB) error {
 	// postgres doesn't return the last inserted Username so this is the workaround
-	fmt.Println("here")
 	err := db.QueryRow(
 		"INSERT INTO account(username, password, email) VALUES($1, $2, $3) RETURNING username",
 		u.Username, u.Password, u.Email).Scan(&u.Username)
@@ -130,4 +129,11 @@ func getArticles(db *sql.DB, username string) ([]article, error) {
 	}
 
 	return articles, nil
+}
+
+func deleteTimeoutArticle(db *sql.DB) error {
+	fmt.Println("I am runnning delete timeout.")	
+	_, err := db.Exec("DELETE FROM article WHERE username='' AND (CURRENT_TIMESTAMP - time) > INTERVAL '5 minutes'")
+
+	return err
 }

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url("rgbg.jpg");
+            background-color: #d9d2e6;
+            background-repeat: no-repeat;
+            height: auto;
+            /* You must set a specified height */
+            background-position: center;
+            /* Center the image */
+            background-repeat: no-repeat;
+            /* Do not repeat the image */
+            background-size: cover;
+            /* Resize the background image to cover the entire container */
+        }
+
+        form {
+            display: inline-block;
+            text-align: center;
+            color: rgb(230, 147, 23);
+            text-decoration-style: solid;
+            z-index: 99;
+            font-size: 18px;
+
+            padding: 20px;
+            border-radius: 50px;
+        }
+
+        .container2 {
+            text-align: center;
+            color: rgb(224, 202, 5);
+
+        }
+
+        #btn-login {
+            color: white;
+            text-decoration: none; /* no underline */
+        }
+
+        .error-indicator {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Success</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    You have successful signed up.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"><a id="btn-login" href="/login/">Login</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="height: 550px">
+
+        
+        <form method="post" id="signupform" style="font-style: italic" action="/register">
+            <h3>Sign Up</h3>
+            <div class="form-group">
+                <input type="text" class="form-control" id="userame" name="username" placeholder="Enter Username.">
+                {{ if .B0 }}     
+                    <small class="error-indicator">{{ .Msg }}</small>
+                {{ else }}
+                    <small id="password" class="form-text text-muted">Please do not use weird username !</small>
+                {{ end }}
+            </div>           
+            <div class="form-group">
+                <input type="text" class="form-control" id="email" name="email" placeholder="Email: name@example.com">
+                {{ if .B1 }}     
+                    <small class="error-indicator">{{ .Msg }}</small>
+                {{ else }}
+                    <small id="password" class="form-text text-muted">Please key in an active email address.</small>
+                {{ end }}
+            </div>           
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password.">
+                {{ if .B2 }}     
+                    <small class="error-indicator">{{ .Msg }}</small>
+                {{ else }}
+                    <small id="password" class="form-text text-muted">Do not share your password with anyone!</small>
+                {{ end }}
+            </div>         
+            <div class="form-group">
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Enter your password again.">
+                {{ if .B3 }}     
+                    <small class="error-indicator">{{ .Msg }}</small>
+                {{ else }}
+                    <small id="confirmPassword" class="form-text text-muted">Sharing your password is dangerous!!!</small>
+                {{ end }}
+            </div>
+            {{ if .B4 }}
+                <small class="error-indicator">{{ .Msg }}</small>
+            {{ end }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="container2">
+                <br>
+                <br>
+                <h7>Already have an account ?</h7>
+                <button type="button" id="loginbutton" class="btn btn-outline-danger text-danger">
+                    <a href="/login/">Sign In</a>
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        var width = $(document).width();
+        var height = $(document).height();
+        var form_width = $("#signupform").width();
+        var form_height = $("#signupform").height();
+        var a = width / 7;
+        var b = height / 2;
+        var c = form_width / 2;
+        var d = form_height / 2;
+
+
+        $("#signupform").css("position", "fixed");
+        $("#signupform").css("left", a - c);
+        $("#signupform").css("top", b - d - 50);
+
+        {{ if .B5 }}     
+            {{ .Msg }}
+        {{ end }}
+
+    </script>
+</body>
+
+</html>

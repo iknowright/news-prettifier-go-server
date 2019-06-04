@@ -155,6 +155,8 @@ func (a *App) HomePageHandler(response http.ResponseWriter, request *http.Reques
                 fmt.Println("bad query")
             }
         }
+    } else {
+        deleteTimeoutArticle(a.DB)
     }
     tmpl := template.Must(template.ParseFiles("templates/home.html"))
     tmpl.Execute(response, n)
@@ -205,7 +207,17 @@ func (a *App) RegisterPageHandler(response http.ResponseWriter, request *http.Re
     var body, _ = helpers.LoadFile("templates/register.html")
     fmt.Fprintf(response, body)
 }
- 
+
+type register_msg struct {
+    B0 int
+    B1 int
+    B2 int
+    B3 int
+    B4 int
+    B5 int
+    Msg string
+}
+
 // for POST
 func (a *App) RegisterHandler(w http.ResponseWriter, r *http.Request) {
     r.ParseForm()
@@ -219,31 +231,51 @@ func (a *App) RegisterHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(email)
 	fmt.Println(pwd)
 	fmt.Println(confirmPwd)
-	
- 
+    
+    msg := register_msg {
+        B0:0,
+        B1:0,
+        B2:0,
+        B3:0,        
+        B4:0,
+        B5:0,
+        Msg:"",
+    }
+    if !_uName {
+        msg.B0 = 1;
+    }
+    if !_email {   
+        msg.B1 = 1   
+    }
+    if !_pwd { 
+        msg.B2 = 1    
+    }
+    if !_confirmPwd {
+        msg.B3 = 1
+    }
+    msg.Msg = "This field cannot be blank!"
     _uName, _email, _pwd, _confirmPwd := false, false, false, false
     _uName = !helpers.IsEmpty(uName)
     _email = !helpers.IsEmpty(email)
     _pwd = !helpers.IsEmpty(pwd)
     _confirmPwd = !helpers.IsEmpty(confirmPwd)
  
-    if _uName && _email && _pwd && _confirmPwd {
-        fmt.Fprintln(w, "Username for Register : ", uName)    
-        fmt.Fprintln(w, "Email for Register : ", email)     
-        fmt.Fprintln(w, "Password for Register : ", pwd)  
-        fmt.Fprintln(w, "ConfirmPassword for Register : ", confirmPwd)    
+    if _uName && _email && _pwd && _confirmPwd {    
         if pwd == confirmPwd {
             n := account{ Username:uName, Password:pwd, Email:email}
             if err := n.createAccount(a.DB); err != nil {
                 fmt.Println("I'm here with error!")                            
                 return
-            }         
+            }
+            msg.B5 = 1
+            msg.Msg = "$(\"#exampleModalCenter\").modal('show');"
         } else {
-            fmt.Fprintln(w, "Password not match!")
+            msg.B4 = 1
+            msg.Msg = "Password does not match!"
         }
-    } else {
-        fmt.Fprintln(w, "This fields can not be blank!")
     }
+    tmpl := template.Must(template.ParseFiles("templates/register_result.html"))
+    tmpl.Execute(w, msg)
 }
 
 type login_data struct {
