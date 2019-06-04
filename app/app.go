@@ -91,7 +91,7 @@ func (a *App) InitializeRoutes() {
     // register
 
     a.Router.HandleFunc("/register", a.RegisterPageHandler).Methods("GET")
-    a.Router.HandleFunc("/register", a.RegisterHandler).Methods("POST")
+    a.Router.HandleFunc("/register", a.RegisterHandler).Methods("GET")
  
     // logout
     a.Router.HandleFunc("/logout/", a.LogoutHandler).Methods("GET")
@@ -237,7 +237,7 @@ func (a *App) RegisterHandler(w http.ResponseWriter, r *http.Request) {
     _email = !helpers.IsEmpty(email)
     _pwd = !helpers.IsEmpty(pwd)
     _confirmPwd = !helpers.IsEmpty(confirmPwd)
-    
+
     msg := register_msg {
         B0:0,
         B1:0,
