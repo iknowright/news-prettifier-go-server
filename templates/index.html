@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS -->
   <!-- <link rel="stylesheet" href="css.css"> -->
+  <title>Index：{{ .Current_Article.Title }}</title>  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -53,9 +54,18 @@
       text-align:left;
     }
 
-  .colorbutton {
+    .colorbutton {
   border: none;
-  background-color: rgb(214, 216, 196);
+  
+  color: black;
+  padding: 14px 28px;
+  font-size: 20px;
+  cursor: pointer;
+  font-style: oblique;
+}
+.colorbutton2 {
+  border: none;
+  
   color: black;
   padding: 14px 28px;
   font-size: 20px;
@@ -64,8 +74,10 @@
 }
 
 .dark {
-  border-color: rgb(34, 2, 2);
-  color: rgb(0, 8, 0); 
+  border-image: linear-gradient(to left, #18027c 0%, #f77b07 100%);
+  border-image-slice: 1;
+  border-width: 3px;
+  color: rgb(197, 149, 18); 
   width:67px;
 }
 
@@ -75,19 +87,24 @@
   box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .light {
-  border-color: rgb(220, 235, 11);
-  color: rgba(24, 4, 95, 0.801);
+  
+  border-image: linear-gradient(to left, #f83c03 0%, #9ef006 100%);
+  border-image-slice: 1;
+  border-width: 3px;
+  color: rgb(197, 149, 18); 
   width:67px;
 }
 
 .light:hover {
-  background-color: rgb(244, 247, 244);
+  background-color: rgb(248, 248, 252);
   color: rgb(31, 3, 3);
   box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .blue {
-  border-color: rgb(220, 235, 11);
-  color: rgba(55, 3, 241, 0.685);
+  border-image: linear-gradient(to right, #10eeee 0%, #250692 100%);
+  border-image-slice: 1;
+  border-width: 3px;
+  color: rgb(197, 149, 18); 
   width:67px;
 }
 
@@ -97,8 +114,11 @@
   box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .gray {
-  border-color: rgb(220, 235, 11);
-  color: rgb(41, 44, 41);
+  border-image: linear-gradient(to right, #f0ebead0 0%, #8c0d97 100%);
+  border-image-slice: 1;
+  border-width: 3px;
+  
+  color: rgb(197, 149, 18); 
   width:67px;
 }
 
@@ -112,6 +132,8 @@
   border-color: rgba(204, 60, 3, 0.836);
   color: rgb(235, 8, 8);
   font-size: 20px;
+  width:138px;
+  border-width: 3px;
 }
 
 .da:hover {
@@ -125,6 +147,8 @@
   color: rgb(226, 107, 9);
   font-size: 15px;
   padding-top:10px;
+  border-width: 3px;
+
 }
 
 .zhong:hover {
@@ -133,9 +157,10 @@
   box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .xiao {
-  border-color: rgba(3, 212, 31, 0.767);
-  color: rgb(13, 218, 13);
+  border-color: rgba(5, 168, 27, 0.767);
+  color: rgb(4, 131, 4);
   font-size: 10px;
+  border-width: 3px;
   padding-top:13px; /* push the link down to the vertical centre of button (by half the total height) */
 	
 }
@@ -145,6 +170,7 @@
   color: rgb(60, 15, 238);
   box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
 #myBtn {
       display: none;
       position: fixed;
@@ -174,29 +200,26 @@
 
 <body>
 
-    <div class="footer">
-        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-    </div>
+  <div class="footer">
+      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+  </div>
 
-    <nav class="navbar navbar-light bg-warning">
-      <a class="navbar-brand" href="#">
-        <img src="home.jpg" width="30" height="30" class="d-inline-block align-top" alt="">&nbsp;&nbsp;&nbsp;&nbsp;
-        <span class="navbar-text">
-          Welcome, {{ .Owner }}
-        </span>
-      </a>
-      <select onchange="window.location.href=this.value;">
-        {{range .Articles}}
-        <option value="/index/{{ .Article_ID }}">{{ .Title }}</option>
-        {{end}}
-      </select>
-      <form class="form-inline">
-        <button type="button" class="btn btn-outline-success" id="logoutbutton">
-          <a href="/logout/{{ .Current_Article.Article_ID }}">Log Out</a>
-        </button>
-      </form>
-    </nav>
-
+  <nav id="navb" class="navbar navbar-light" >
+    <a class="navbar-brand" href="#">
+      <img src="home.jpg" width="30" height="30" class="d-inline-block align-top" alt="">&nbsp;&nbsp;&nbsp;&nbsp;
+      <p class="navbar-text" id="navt"> Welcome, {{ .Owner }}</p>         
+    </a>
+    <select onchange="window.location.href=this.value;">
+      {{range .Articles}}
+      <option value="/index/{{ .Article_ID }}">{{ .Title }}</option>
+      {{end}}
+    </select>
+    <form class="form-inline">
+      <button type="button" class="btn btn-outline-success" id="logoutbutton">
+        <a href="/logout/{{ .Current_Article.Article_ID }}">Log Out</a>
+      </button>
+    </form>
+  </nav>
 
   <!-- ..........................TITLE AND TEXT................. -->
   <div class="container-fluid" id="cf">
@@ -215,9 +238,7 @@
                   </dd>
                 </dl>
               </div>
-      
               <div class="badge">
-                
                 <p> Origin：
                   <a href="{{.Current_Article.Origin}}" class="alert-link">Click！</a>
                 </p>
@@ -228,51 +249,38 @@
       </div>
       <!-- ..........................BUTTON GROUP................. -->
       <div class="col-sm-2">
-  
-        <div class="btn-group btn-group-toggle" id="colorbutton" >
+        <div class="btn-group btn-group-toggle" id="colorbutton">
           <label class="btn dark active">
             <input type="radio" id="darkbut" name="radio_1" onclick="DarkBack()" autocomplete="off"> Dark
           </label>
-  
           <label class="btn blue">
             <input type="radio" id="bluebut" name="radio_1" onclick="DarkBlueBack()" autocomplete="off"> Blue
           </label>
-  
-          <label class="btn light">
-            <input type="radio" id="whitebut" name="radio_1" onclick="WhiteBack()" autocomplete="off" checked> Light
-          </label>
-  
-          <label class="btn gray">
-            <input type="radio" id="graybut" name="radio_1" onclick="GrayBack()" autocomplete="off"> Gray
-          </label>
-        </div>
-  
-        <div class="btn-group btn-group-toggle" id="sizebutton" >
-          <label class="btn da active">
-            <input type="radio" id="largebut" name="radio_2" onclick="Large()" autocomplete="off"> Large
-          </label>
-  
+          <div class="btn-group btn-group-toggle" id="colorbutton2">
+            <label class="btn light">
+              <input type="radio" id="whitebut" name="radio_1" onclick="WhiteBack()" autocomplete="off" checked> Light
+            </label>
+            <label class="btn gray">
+              <input type="radio" id="graybut" name="radio_1" onclick="GrayBack()" autocomplete="off"> Gray
+            </label>
+          </div>
+        </div>      
+        <div class="btn-group btn-group-toggle" id="sizebutton2">
           <label class="btn zhong">
             <input type="radio" id="mediumbut" name="radio_2" onclick="Medium()" autocomplete="off"> Medium
           </label>
-  
           <label class="btn xiao">
-            <input type="radio" id="smallbut" name="radio_2" onclick="Small()" autocomplete="off" > Small
+            <input type="radio" id="smallbut" name="radio_2" onclick="Small()" autocomplete="off"> Small
           </label>
         </div>
-  
         <div class="button" id="savestyle">
           <label class="btn" active>
             <button type="button" id="savebut" class="btn btn-outline-danger">Save Style</button>
           </label>
         </div>
-  
       </div>
     </div>
   </div>
-
- <!-- ----------------------------------------testing------------------------------- -->
- 
 
   <!-- Optional JavaScript -->
 
@@ -281,58 +289,63 @@
     // var size = [0,1,2];
     // var colour = [0,1,2,3];
 
-     var current_size = {{ .Size }};
-     var current_colour = {{ .Color }} ;
+    var current_size = {{ .Size }};
+    var current_colour = {{ .Color }} ;
 
     //console.log(current_colour);
-        var width = $(document).width();
-        var height = $(document).height();
-        var bar_width = $("#topbar").width();
-        var lb = $("#userinfo").width();
-        var bar_height = $("#topbar").height();
-        var a = width/4 ;
-        var b =height/20 ;
-        var c = bar_width/2 ;
-        var d =a/2;
-        var cf_height = $("#cf").height();
-        
+    var width = $(document).width();
+    var height = $(document).height();
+    var bar_width = $("#topbar").width();
+    var lb = $("#userinfo").width();
+    var bar_height = $("#topbar").height();
+    var a = width/4 ;
+    var b =height/20 ;
+    var c = bar_width/2 ;
+    var d =a/2;
+    var cf_height = $("#cf").height();
+    
+    $("#colorbutton").css("position","fixed");
+    $("#colorbutton").css("right",0);
+    $("#colorbutton").css("top",b+40);
+    $("#colorbutton2").css("position","fixed");
+    $("#colorbutton2").css("right",0);
+    $("#colorbutton2").css("top",b+80);
+    $("#sizebutton").css("position","fixed");
+    $("#sizebutton").css("right",0);
+    $("#sizebutton").css("top",b+170);
+    $("#sizebutton2").css("position","fixed");
+    $("#sizebutton2").css("right",0);
+    $("#sizebutton2").css("top",b+217);
+    $("#savestyle").css("position","fixed");
+    $("#savestyle").css("right",0);
+    $("#savestyle").css("top",b+300);
+    $("#textbar").css("left",lb*2);
+    $("#textbar").css("top",cf_height);
+    $("#userinfo").css("position","absolute");
+    $("#userinfo").css("left","50px");
+    $("#userinfo").css("top","180px");
+    $("#usertext").css("position","absolute");
+    $("#usertext").css("left",d);
+    /*  $("#usertext").css("top","180px");   */
+    window.onscroll = function () { scrollFunction() };
 
-        $("#colorbutton").css("position","fixed");
-        $("#colorbutton").css("right",0);
-        $("#colorbutton").css("top",b+40);
-        $("#sizebutton").css("position","fixed");
-        $("#sizebutton").css("right",0);
-        $("#sizebutton").css("top",b+100);
-        $("#savestyle").css("position","fixed");
-        $("#savestyle").css("right",0);
-        $("#savestyle").css("top",b+160);
-        $("#textbar").css("left",lb*2);
-        $("#textbar").css("top",cf_height);
-        $("#userinfo").css("position","absolute");
-        $("#userinfo").css("left","50px");
-        $("#userinfo").css("top","180px");
-        $("#usertext").css("position","absolute");
-        $("#usertext").css("left",d);
-      /*  $("#usertext").css("top","180px");   */
-      window.onscroll = function () { scrollFunction() };
+    function scrollFunction() {
+      if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+        document.getElementById("myBtn").style.display = "block";
+      } else {
+        document.getElementById("myBtn").style.display = "none";
+      }
+    }
 
-        function scrollFunction() {
-          if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
-            document.getElementById("myBtn").style.display = "block";
-          } else {
-            document.getElementById("myBtn").style.display = "none";
-          }
-        }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.documentElement.scrollTop = 0;
+    }
 
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-          document.documentElement.scrollTop = 0;
-        }
- 
-         /* ......................................text size function.........DONE....................................................*/
+    /* ......................................text size function.........DONE....................................................*/
 
     function Large() {
-      document.getElementById("text1").style.fontSize="xx-large";
+      document.getElementById("text1").style.fontSize = "xx-large";
       current_size = 2;
     }
 
@@ -346,9 +359,9 @@
       document.getElementById("text1").style.fontSize = "smaller";
     }
   
-  //////////////////////////////////////////////////test colour function///////////DONE///////////////////////////////////////////
+    //////////////////////////////////////////////////test colour function///////////DONE///////////////////////////////////////////
   
-  function DarkText() {
+    function DarkText() {
       document.getElementById("text1").style = "color:rgba(13, 14, 13, 0.911);"
       document.getElementById("titletext").style = "color:rgba(13, 14, 13, 0.911);"
     }
@@ -360,7 +373,7 @@
 
     function WhiteText() {
       document.getElementById("text1").style = "color:rgb(218, 230, 230);"
-      document.getElementById("titletext").style =  "color:rgb(218, 230, 230);"
+      document.getElementById("titletext").style = "color:rgb(218, 230, 230);"
     }
 
     function GrayText() {
@@ -368,16 +381,20 @@
       document.getElementById("titletext").style = "color:rgba(179, 189, 209, 0.952);"
     }
      
-  /* .....................................background colour..............DONE................................................*/
+    /* .....................................background colour..............DONE................................................*/
   
-  function WhiteBack() {
-    document.body.style="background-color: rgb(255, 255, 255);" ;
-    DarkText();
+    function WhiteBack() {
+      document.body.style="background-color: rgb(255, 255, 255);" 
+      document.getElementById("navb").style="background-color:rgb(246,247, 235);"
+      document.getElementById("navt").style = "color:rgb(15, 11, 1);"
 
-   current_colour = 0;
+      
+      DarkText();
+
+      current_colour = 0;
 
       if ( current_size == 2) {
-       Large();
+      Large();
       }
       else if (current_size == 1) {
         Medium();
@@ -388,7 +405,9 @@
     }
 
     function DarkBack() {
-      document.body.style = "background-color:rgb(50, 50, 50);";
+      document.body.style = "background-color:rgb(50, 50, 50);"
+      document.getElementById("navb").style="background-color:rgb(35, 35, 35);"
+      document.getElementById("navt").style = "color:rgb(229, 227, 236);"
       WhiteText();
       current_colour = 1;
 
@@ -403,9 +422,10 @@
       }
     }
 
-
     function DarkBlueBack() {
-      document.body.style = "background-color: rgb(29, 131, 179);";
+      document.body.style = "background-color:rgb(2, 2, 75);";
+      document.getElementById("navb").style="background-color:rgb(6, 6, 41);"
+      document.getElementById("navt").style = "color:rgb(229, 227, 236);"
       GrayText();
       current_colour = 2;
 
@@ -421,7 +441,9 @@
     }
 
     function GrayBack() {
-      document.body.style = "background-color: rgb(218, 221, 218);";
+      document.body.style = "background-color: rgb(219, 223, 224);";
+      document.getElementById("navb").style="background-color:rgb(199, 203, 204);"
+      document.getElementById("navt").style = "color:rgb(15, 11, 1);"
       DarkText();
 
       current_colour = 3;
@@ -436,59 +458,41 @@
         Small();
       }
     }
+    /* .........................................DONE..........................................................*/
 
-  
-  
-  /* .........................................DONE..........................................................*/
-  
-  
     if (current_size == 2) {
-
       document.getElementById("largebut").checked = true;
       Large();
-
     }
     if (current_size == 1) {
-
       document.getElementById("mediumbut").checked = true;
       Medium();
-
     }
     if (current_size == 0) {
-
       document.getElementById("smallbut").checked = true;
       Small()
-
     }
-
 
     //////////////////////////////////////DONE//////////////////////////////////////////////////////////
 
     if (current_colour == 3) {
-
       document.getElementById("graybut").checked = true;
       GrayBack();
-
     }
     if (current_colour == 2) {
-
       document.getElementById("bluebut").checked = true;
       DarkBlueBack();
-
     }
     if (current_colour == 1) {
-
       document.getElementById("darkbut").checked = true;
       DarkBack()
-
     }
     if (current_colour == 0) {
-
       document.getElementById("whitebut").checked = true;
       WhiteBack()
     }   
 
- /* .........................................DONE..........................................................*/
+    /* .........................................DONE..........................................................*/
 
     $(document).ready(function () {
       console.log("im here");
@@ -502,9 +506,6 @@
         });       
       });
     });
-
-   
-
   </script>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -516,5 +517,4 @@
     crossorigin="anonymous"></script>
 
 </body>
-
 </html>

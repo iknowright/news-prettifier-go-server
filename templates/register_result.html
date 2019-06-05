@@ -11,7 +11,7 @@
         crossorigin="anonymous">
     <style>
         body {
-            background-image: url("rgbg.jpg");
+            background-image: url("/static/register.jpg");
             background-color: #d9d2e6;
             background-repeat: no-repeat;
             height: auto;
@@ -36,6 +36,7 @@
             border-radius: 50px;
         }
 
+
         .container2 {
             text-align: center;
             color: rgb(224, 202, 5);
@@ -44,7 +45,8 @@
 
         #btn-login {
             color: white;
-            text-decoration: none; /* no underline */
+            text-decoration: none;
+            /* no underline */
         }
 
         .error-indicator {
@@ -55,65 +57,63 @@
 
 <body>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Success</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    You have successful signed up.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary"><a id="btn-login" href="/login/">Login</a></button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="container-fluid" style="height: 550px">
 
-        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Success</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        You have successful signed up.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">
+                            <a id="btn-login" href="/login/">Login</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <form method="post" id="signupform" style="font-style: italic" action="/register">
             <h3>Sign Up</h3>
             <div class="form-group">
-                <input type="text" class="form-control" id="userame" name="username" placeholder="Enter Username.">
-                {{ if .B0 }}     
-                    <small class="error-indicator">{{ .Msg }}</small>
+                <input type="text" class="form-control" id="userame" name="username" placeholder="Enter Username."> {{ if .B0 }}
+                <small class="error-indicator">{{ .Msg }}</small>
                 {{ else }}
-                    <small id="password" class="form-text text-muted">Please do not use weird username !</small>
+                <small id="password" class="form-text text-muted">Please do not use weird username !</small>
                 {{ end }}
-            </div>           
+            </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="email" name="email" placeholder="Email: name@example.com">
-                {{ if .B1 }}     
-                    <small class="error-indicator">{{ .Msg }}</small>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Email: name@example.com"> {{ if .B1 }}
+                <small class="error-indicator">{{ .Msg }}</small>
                 {{ else }}
-                    <small id="password" class="form-text text-muted">Please key in an active email address.</small>
+                <small id="password" class="form-text text-muted">Please key in an active email address.</small>
                 {{ end }}
-            </div>           
+            </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password.">
-                {{ if .B2 }}     
-                    <small class="error-indicator">{{ .Msg }}</small>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password."> {{ if .B2 }}
+                <small class="error-indicator">{{ .Msg }}</small>
                 {{ else }}
-                    <small id="password" class="form-text text-muted">Do not share your password with anyone!</small>
+                <small id="password" class="form-text text-muted">Do not share your password with anyone!</small>
                 {{ end }}
-            </div>         
+            </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Enter your password again.">
-                {{ if .B3 }}     
-                    <small class="error-indicator">{{ .Msg }}</small>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Enter your password again."> {{ if .B3 }}
+                <small class="error-indicator">{{ .Msg }}</small>
                 {{ else }}
-                    <small id="confirmPassword" class="form-text text-muted">Sharing your password is dangerous!!!</small>
+                <small id="confirmPassword" class="form-text text-muted">Sharing your password is dangerous!!!</small>
                 {{ end }}
             </div>
             {{ if .B4 }}
-                <small class="error-indicator">{{ .Msg }}</small>
+            <small class="error-indicator">{{ .Msg }}</small>
             {{ end }}
             <button type="submit" class="btn btn-primary">Submit</button>
             <div class="container2">
@@ -147,10 +147,9 @@
         $("#signupform").css("left", a - c);
         $("#signupform").css("top", b - d - 50);
 
-        {{ if .B5 }}     
-            {{ .Msg }}
+        {{ if .B5 }}
+        {{ .Msg }}
         {{ end }}
-
     </script>
 </body>
 

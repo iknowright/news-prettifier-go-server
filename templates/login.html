@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         body {
-            background-image: url("login3.jpg");
+            background-image: url("/static/login.jpg");
             background-color: #d9d2e6;
             background-repeat: no-repeat;
             height: auto;
@@ -21,10 +22,10 @@
             background-size: cover;
             /* Resize the background image to cover the entire container */
         }
-
+    
         form {
             display: inline-block;
-
+    
             text-align: center;
             color: rgb(23, 230, 57);
             text-decoration-style: solid;
@@ -33,22 +34,16 @@
             padding: 20px;
             border-radius: 50px;
         }
-
-
+    
         .container2 {
             text-align: center;
             color: rgb(156, 230, 73);
-
         }
     </style>
 </head>
 
 <body>
-
-
     <div class="container-fluid" id="form1" style="height: 550px">
-
-
         <form method="post" id="form" action="/login/{{.}}" style="font-style: italic">
             <h5>Sign In</h5>
             <div class="form-group">
@@ -58,7 +53,8 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
                 <small id="emailHelp" class="form-text text-muted">Do not share your password with anyone!</small>
             </div>
-            <button type="submit" class="btn btn-primary">SIGN IN</button>
+            <button type="submit" class="btn btn-primary">
+                <a href="/register/"></a>SIGN IN</button>
 
             <div class="container2" id="signup">
                 <br>
@@ -67,13 +63,8 @@
                 <button type="button" id="signupbutton" class="btn btn-outline-danger text-danger">
                     <a href="/register">Sign Up</a>
                 </button>
-
             </div>
         </form>
-
-
-
-
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -103,5 +94,4 @@
         $("#signup").css("bottom", "80px");
     </script>
 </body>
-
 </html>
