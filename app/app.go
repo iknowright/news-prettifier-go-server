@@ -91,7 +91,7 @@ func (a *App) InitializeRoutes() {
     // register
 
     a.Router.HandleFunc("/register", a.RegisterPageHandler).Methods("GET")
-    a.Router.HandleFunc("/register", a.RegisterHandler).Methods("GET")
+    a.Router.HandleFunc("/register", a.RegisterHandler).Methods("POST")
  
     // logout
     a.Router.HandleFunc("/logout/", a.LogoutHandler).Methods("GET")
@@ -220,6 +220,7 @@ type register_msg struct {
 
 // for POST
 func (a *App) RegisterHandler(w http.ResponseWriter, r *http.Request) {
+    fmt.Println("GET register handler")
     r.ParseForm()
     
     uName := r.FormValue("username")
