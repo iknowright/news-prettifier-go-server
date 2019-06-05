@@ -185,9 +185,9 @@
           Welcome, {{ .Owner }}
         </span>
       </a>
-      <select>
+      <select onchange="window.location.href=this.value;">
         {{range .Articles}}
-        <option>{{ .Article_ID }}</option>
+        <option value="/index/{{ .Article_ID }}">{{ .Title }}</option>
         {{end}}
       </select>
       <form class="form-inline">
