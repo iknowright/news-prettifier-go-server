@@ -134,6 +134,6 @@ func getArticles(db *sql.DB, username string) ([]article, error) {
 func deleteTimeoutArticle(db *sql.DB) error {
 	fmt.Println("I am runnning delete timeout.")	
 	_, err := db.Exec("DELETE FROM article WHERE username='' AND (CURRENT_TIMESTAMP - time) > INTERVAL '5 minutes'")
-
+	fmt.Println(err)
 	return err
 }

@@ -5,15 +5,15 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Index</title>
   <!-- Bootstrap CSS -->
   <!-- <link rel="stylesheet" href="css.css"> -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <style>
     @keyframes fade {
+
       0%,
       50% {
         opacity: 0;
@@ -21,39 +21,131 @@
       }
     }
 
-    .container {
+    .container-fluid {
       animation: fade 1s;
       display: block;
     }
 
     body {
-      background-image: url("index4.jpg");
-      background-color: #03202e;
-      background-repeat: no-repeat;
-      height: auto;
-      /* You must set a specified height */
-      background-position: center;
-      /* Center the image */
-      background-repeat: no-repeat;
-      /* Do not repeat the image */
-      background-size: cover;
-      /* Resize the background image to cover the entire container */
+      background-color: #f6f9fa;
+      background-repeat:no-repeat;
+      height:100%;
+      background-position:center;     
+      background-size:inherit;     
+      z-index: 1;
     }
 
-    .footer {
-
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      background-image: url("2.jpg");
-      background-color: red;
-      color: white;
-      text-align: center;
-      text-decoration-style: solid;
+    #usertext {
+      text-align:left;
+      padding: 15px;
+      height:auto;   
+      font-size: 18px;
+      border-radius: 50px
+    }
+    #titletext {
+      text-align:center;
+      padding: 15px;
+      height:auto;   
+      font-size: 18px;
+      border-radius: 50px
+    }
+    #text {
+      text-align:left;
     }
 
-    #myBtn {
+  .colorbutton {
+  border: none;
+  background-color: rgb(214, 216, 196);
+  color: black;
+  padding: 14px 28px;
+  font-size: 20px;
+  cursor: pointer;
+  font-style: oblique;
+}
+
+.dark {
+  border-color: rgb(34, 2, 2);
+  color: rgb(0, 8, 0); 
+  width:67px;
+}
+
+.dark:hover {
+  background-color: rgb(1, 10, 1);
+  color: white;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.light {
+  border-color: rgb(220, 235, 11);
+  color: rgba(24, 4, 95, 0.801);
+  width:67px;
+}
+
+.light:hover {
+  background-color: rgb(244, 247, 244);
+  color: rgb(31, 3, 3);
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.blue {
+  border-color: rgb(220, 235, 11);
+  color: rgba(55, 3, 241, 0.685);
+  width:67px;
+}
+
+.blue:hover {
+  background-color: rgb(21, 18, 194);
+  color: rgb(204, 199, 223);
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.gray {
+  border-color: rgb(220, 235, 11);
+  color: rgb(41, 44, 41);
+  width:67px;
+}
+
+.gray:hover {
+  background-color: rgb(218, 221, 218);
+  color: rgb(17, 7, 59);
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.da {
+  border-color: rgba(204, 60, 3, 0.836);
+  color: rgb(235, 8, 8);
+  font-size: 20px;
+}
+
+.da:hover {
+  background-color: rgb(51, 5, 235);
+  color: rgb(214, 250, 132);
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  
+}
+.zhong {
+  border-color: rgba(230, 105, 3, 0.822);
+  color: rgb(226, 107, 9);
+  font-size: 15px;
+  padding-top:10px;
+}
+
+.zhong:hover {
+  background-color: rgba(98, 7, 110, 0.541);
+  color: rgb(204, 247, 17);
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.xiao {
+  border-color: rgba(3, 212, 31, 0.767);
+  color: rgb(13, 218, 13);
+  font-size: 10px;
+  padding-top:13px; /* push the link down to the vertical centre of button (by half the total height) */
+	
+}
+
+.xiao:hover {
+  background-color: rgb(16, 236, 16);
+  color: rgb(60, 15, 238);
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#myBtn {
       display: none;
       position: fixed;
       bottom: 5px;
@@ -68,233 +160,119 @@
       padding: 20px;
       border-radius: 50px;
     }
+#myBtn:hover {
+  background-color: #555;
+}
 
-    #logoutbutton {
-      position: absolute;
-      font-size: 14px;
-      padding: 10px;
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 99;
-    }
 
-    #demo1 {
-      text-align: left;
-      padding: 20px;
-    }
-
-    #userinfo {
-      text-align: center;
-      padding: 20px;
-
-      font-size: 18px;
-      border: lightcyan;
-      outline: lightgreen;
-      color: white;
-      border-radius: 90px
-    }
-
-    #usertext {
-      text-align: center;
-      padding: 20px;
-      font-size: 18px;
-      border: lightcyan;
-      outline: lightgreen;
-      color: white;
-      border-radius: 90px
-    }
-
-    #myBtn:hover {
-      background-color: #555;
-    }
-
-    #titletext {
-      padding: 20px;
-      border: rgb(5, 139, 139);
-      outline: rgb(88, 6, 10);
-      color: rgb(233, 110, 110);
-      border-radius: 90px
-    }
   </style>
 
 
   <title>News Prettifier（Title）</title>
 </head>
-<!-- ................................................................................... -->
+<!-- ..................................NAV BAR................................................. -->
 
 <body>
 
-  <div class="footer">
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-  </div>
-  <!-- ................................................................................... -->
-
-  <div class="container-fluid">
-
-    <!-- ................................................................................... -->
-    <div class="row">
-
-      <div class="col-sm-11 ">
-        <div class="p-3 mb-3" id="titletext" ; ondblclick="Origin()">
-          <h1>{{.Current_Article.Title}}
-          </h1>
-        </div>
-      </div>
-
-      <div class="logout">
-        <div class="d-flex flex-row-reverse ">
-          <button type="button" class="btn btn-outline-success" id="logoutbutton">
-            <a href="/logout/{{ .Current_Article.Article_ID }}">Log Out</a>
-          </button>
-        </div>
-      </div>
-
+    <div class="footer">
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     </div>
 
-    <!-- ...................................from here................................................ -->
+    <nav class="navbar navbar-light bg-warning">
+      <a class="navbar-brand" href="#">
+        <img src="home.jpg" width="30" height="30" class="d-inline-block align-top" alt="">&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="navbar-text">
+          Welcome, {{ .Owner }}
+        </span>
+      </a>
+      <select>
+        {{range .Articles}}
+        <option>{{ .Article_ID }}</option>
+        {{end}}
+      </select>
+      <form class="form-inline">
+        <button type="button" class="btn btn-outline-success" id="logoutbutton">
+          <a href="/logout/{{ .Current_Article.Article_ID }}">Log Out</a>
+        </button>
+      </form>
+    </nav>
 
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-2" id="userinfo">
-
-          <div style="color:rgba(196, 238, 8, 0.952);" ; ondblclick="Small()">
-            <p>Welcome </p>
-            <p>{{ .Owner }}</p>
-            <br>
-
-          </div>
-
-
-          <div style="color:rgba(245, 221, 7, 0.952);" ; ondblclick="Small()">
-            <p>History </p>
-          </div>
-          <select>
-              {{range .Articles}}
-                  <option>{{ .Article_ID }}</option>
-              {{end}}
-          </select>
-
-
-          <br>
-          <br>
-          <div style="color:rgba(8, 238, 77, 0.952);" ; ondblclick="Small()">
-            <p>Style selection</p>
-          </div>
-
-
-
-          <div class="badge badge-dark">
-            <input type="radio" id="darkbut" name="radio_1" onclick="DarkBack()"> Dark
-          </div>
-
-
-          <div class="badge badge-primary">
-            <input type="radio" id="bluebut" name="radio_1" onclick="DarkBlueBack()"> Blue
-          </div>
-
-
-          <div class="badge badge-light">
-            <input type="radio" id="whitebut" name="radio_1" onclick="WhiteBack()" checked> Light
-          </div>
-
-
-          <div class="badge badge-secondary">
-            <input type="radio" id="graybut" name="radio_1" onclick="GrayBack()"> Gray
-          </div>
-
-
-          <div class="btn-group-vertical">
-            <p></p>
-            <p></p>
-            <div style="color:rgba(8, 238, 77, 0.952);" ; ondblclick="Small()">
-              <p>Size selection</p>
-
-            </div>
-            <label for="option1" style="color: gold">
-              <input type="radio" name="radio" id="option1" onclick="Large()" autocomplete="off">Large
-            </label>
-
-            <label for="option2" style="color: gold">
-              <input type="radio" name="radio" id="option2" onclick="Medium()" autocomplete="off" checked>Medium
-            </label>
-
-            <label for="option3" style="color: gold">
-              <input type="radio" name="radio" id="option3" onclick="Small()" autocomplete="off">Small
-            </label>
-
-
-            <br>
-            <br>
-
-            <label class="btn" active>
-
-              <button type="button" id="savebut" class="btn btn-outline-warning">Save Style</button>
-
-            </label>
-
-            <!--   .....................   -->
-
-            <!--   .....................   -->
-          </div>
-
-
-
-        </div>
-
-
-        <div class="col-sm-9" id="usertext">
-          <div id="demo" style="height: auto; background-color: rgba(249, 248, 252, 0.822); ">
-            <div class="h-100 d-inline-block" style="width:600px;">
-              <div id="demo1" style="color:rgba(1, 5, 14, 0.952);">
-                  {{.Current_Article.Content}}
+  <!-- ..........................TITLE AND TEXT................. -->
+  <div class="container-fluid" id="cf">
+    <div class="row">
+      <div class="col-sm-10 ">
+        <div class="p-3 mb-3" id="titletext" style="color:rgba(9, 245, 60, 0.952);">
+          <h1>{{.Current_Article.Title}}<br></br>
+          </h1>
+          <div class="h-100 d-inline-block"  id="usertext" style="height:auto; width:800px; ">
+            <div class="text-break text-monospace" id="text1" style="text-align: left" >
+                {{.Current_Article.Content}}      
+              <div class="badge">
+                <dl>
+                  <dt></dt>
+                  <dd>{{.Current_Article.Author}}
+                  </dd>
+                </dl>
+              </div>
+      
+              <div class="badge">
+                
+                <p> Origin：
+                  <a href="{{.Current_Article.Origin}}" class="alert-link">Click！</a>
+                </p>
               </div>
             </div>
-
           </div>
         </div>
       </div>
-    </div>
-    <!-- ................................................................................... -->
-
-
-
-
-    <!-- ................................................................................... -->
-    <div class="row">
-
-      <div class="col-sm-7" style="color:rgba(199, 57, 156, 0.952);" ondblclick="Medium()">
-
-        <p class="h1">
-
-          <dl>
-            <dt>Author:</dt>
-            <dd>- {{.Current_Article.Author}}</dd>
-          </dl>
-        </p>
-
-      </div>
-
-      <div class="col-md-auto">
-
-        <div class="d-flex bd-highlight mb-3" style="height: 80px;">
-          <div class="p-2 flex-fill bd-highlight" ondblclick="Smaller()" style="color:rgba(210, 247, 6, 0.952);">
-            <p> Article scrapped from ：
-              <a href="{{.Current_Article.Origin}}" class="alert-link">Please Click Me ~ 请点击我 ~</a>
-            </p>
-          </div>
-
+      <!-- ..........................BUTTON GROUP................. -->
+      <div class="col-sm-2">
+  
+        <div class="btn-group btn-group-toggle" id="colorbutton" >
+          <label class="btn dark active">
+            <input type="radio" id="darkbut" name="radio_1" onclick="DarkBack()" autocomplete="off"> Dark
+          </label>
+  
+          <label class="btn blue">
+            <input type="radio" id="bluebut" name="radio_1" onclick="DarkBlueBack()" autocomplete="off"> Blue
+          </label>
+  
+          <label class="btn light">
+            <input type="radio" id="whitebut" name="radio_1" onclick="WhiteBack()" autocomplete="off" checked> Light
+          </label>
+  
+          <label class="btn gray">
+            <input type="radio" id="graybut" name="radio_1" onclick="GrayBack()" autocomplete="off"> Gray
+          </label>
         </div>
+  
+        <div class="btn-group btn-group-toggle" id="sizebutton" >
+          <label class="btn da active">
+            <input type="radio" id="largebut" name="radio_2" onclick="Large()" autocomplete="off"> Large
+          </label>
+  
+          <label class="btn zhong">
+            <input type="radio" id="mediumbut" name="radio_2" onclick="Medium()" autocomplete="off"> Medium
+          </label>
+  
+          <label class="btn xiao">
+            <input type="radio" id="smallbut" name="radio_2" onclick="Small()" autocomplete="off" > Small
+          </label>
+        </div>
+  
+        <div class="button" id="savestyle">
+          <label class="btn" active>
+            <button type="button" id="savebut" class="btn btn-outline-danger">Save Style</button>
+          </label>
+        </div>
+  
       </div>
-
     </div>
-
-
   </div>
 
-
-  <!-- ................................................................................... -->
+ <!-- ----------------------------------------testing------------------------------- -->
+ 
 
   <!-- Optional JavaScript -->
 
@@ -303,30 +281,189 @@
     // var size = [0,1,2];
     // var colour = [0,1,2,3];
 
-    var current_size = {{ .Size }};
-    var current_colour = {{ .Color }} ;
-    console.log(current_size);
-    console.log(current_colour);
+     var current_size = {{ .Size }};
+     var current_colour = {{ .Color }} ;
 
+    //console.log(current_colour);
+        var width = $(document).width();
+        var height = $(document).height();
+        var bar_width = $("#topbar").width();
+        var lb = $("#userinfo").width();
+        var bar_height = $("#topbar").height();
+        var a = width/4 ;
+        var b =height/20 ;
+        var c = bar_width/2 ;
+        var d =a/2;
+        var cf_height = $("#cf").height();
+        
+
+        $("#colorbutton").css("position","fixed");
+        $("#colorbutton").css("right",0);
+        $("#colorbutton").css("top",b+40);
+        $("#sizebutton").css("position","fixed");
+        $("#sizebutton").css("right",0);
+        $("#sizebutton").css("top",b+100);
+        $("#savestyle").css("position","fixed");
+        $("#savestyle").css("right",0);
+        $("#savestyle").css("top",b+160);
+        $("#textbar").css("left",lb*2);
+        $("#textbar").css("top",cf_height);
+        $("#userinfo").css("position","absolute");
+        $("#userinfo").css("left","50px");
+        $("#userinfo").css("top","180px");
+        $("#usertext").css("position","absolute");
+        $("#usertext").css("left",d);
+      /*  $("#usertext").css("top","180px");   */
+      window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            document.getElementById("myBtn").style.display = "block";
+          } else {
+            document.getElementById("myBtn").style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.documentElement.scrollTop = 0;
+        }
+ 
+         /* ......................................text size function.........DONE....................................................*/
+
+    function Large() {
+      document.getElementById("text1").style.fontSize="xx-large";
+      current_size = 2;
+    }
+
+    function Medium() {
+      current_size = 1;
+      document.getElementById("text1").style.fontSize="inherit";
+    }
+
+    function Small() {
+      current_size = 0;
+      document.getElementById("text1").style.fontSize = "smaller";
+    }
+  
+  //////////////////////////////////////////////////test colour function///////////DONE///////////////////////////////////////////
+  
+  function DarkText() {
+      document.getElementById("text1").style = "color:rgba(13, 14, 13, 0.911);"
+      document.getElementById("titletext").style = "color:rgba(13, 14, 13, 0.911);"
+    }
+
+    function BlueText() {
+      document.getElementById("text1").style = "color:rgba(75, 82, 182, 0.952);"
+      document.getElementById("titletext").style = "color:rgba(75, 82, 182, 0.952);"
+    }
+
+    function WhiteText() {
+      document.getElementById("text1").style = "color:rgb(218, 230, 230);"
+      document.getElementById("titletext").style =  "color:rgb(218, 230, 230);"
+    }
+
+    function GrayText() {
+      document.getElementById("text1").style = "color:rgba(179, 189, 209, 0.952);"
+      document.getElementById("titletext").style = "color:rgba(179, 189, 209, 0.952);"
+    }
+     
+  /* .....................................background colour..............DONE................................................*/
+  
+  function WhiteBack() {
+    document.body.style="background-color: rgb(255, 255, 255);" ;
+    DarkText();
+
+   current_colour = 0;
+
+      if ( current_size == 2) {
+       Large();
+      }
+      else if (current_size == 1) {
+        Medium();
+      }
+      else if (current_size == 0) {
+        Small();
+      }
+    }
+
+    function DarkBack() {
+      document.body.style = "background-color:rgb(50, 50, 50);";
+      WhiteText();
+      current_colour = 1;
+
+      if ( current_size == 2) {
+       Large();
+      }
+      else if (current_size == 1) {
+        Medium();
+      }
+      else if (current_size == 0) {
+        Small();
+      }
+    }
+
+
+    function DarkBlueBack() {
+      document.body.style = "background-color: rgb(29, 131, 179);";
+      GrayText();
+      current_colour = 2;
+
+      if ( current_size == 2) {
+       Large();
+      }
+      else if (current_size == 1) {
+        Medium();
+      }
+      else if (current_size == 0) {
+        Small();
+      }
+    }
+
+    function GrayBack() {
+      document.body.style = "background-color: rgb(218, 221, 218);";
+      DarkText();
+
+      current_colour = 3;
+
+      if ( current_size == 2) {
+       Large();
+      }
+      else if (current_size == 1) {
+        Medium();
+      }
+      else if (current_size == 0) {
+        Small();
+      }
+    }
+
+  
+  
+  /* .........................................DONE..........................................................*/
+  
+  
     if (current_size == 2) {
 
-      document.getElementById("option1").checked = true;
+      document.getElementById("largebut").checked = true;
       Large();
 
     }
     if (current_size == 1) {
 
-      document.getElementById("option2").checked = true;
+      document.getElementById("mediumbut").checked = true;
       Medium();
 
     }
     if (current_size == 0) {
 
-      document.getElementById("option3").checked = true;
+      document.getElementById("smallbut").checked = true;
       Small()
 
     }
-    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    //////////////////////////////////////DONE//////////////////////////////////////////////////////////
+
     if (current_colour == 3) {
 
       document.getElementById("graybut").checked = true;
@@ -349,149 +486,14 @@
 
       document.getElementById("whitebut").checked = true;
       WhiteBack()
-    }
+    }   
 
-
-    /* ...................................................................................................*/
-    function WhiteBack() {
-      document.getElementById("demo").style = "background-color: rgba(249, 248, 252, 0.822);"
-      document.getElementById("demo1").style = "color:rgba(13, 14, 13, 0.911);"
-
-      current_colour = 0;
-
-      if (document.getElementById("option1").checked == true) {
-        document.getElementById("demo").style.fontSize = "xx-large";
-      }
-      else if (document.getElementById("option2").checked == true) {
-        document.getElementById("demo").style.fontSize = "larger";
-      }
-      else if (document.getElementById("option3").checked == true) {
-        document.getElementById("demo").style.fontSize = "xx-small";
-      }
-    }
-
-    function DarkBack() {
-      document.getElementById("demo").style = "background-color: rgba(11, 14, 12, 0.822);"
-      document.getElementById("demo1").style = "color:rgba(249, 250, 252, 0.952);"
-
-      current_colour = 1;
-
-      if (document.getElementById("option1").checked == true) {
-        document.getElementById("demo").style.fontSize = "xx-large";
-      }
-      else if (document.getElementById("option2").checked == true) {
-        document.getElementById("demo").style.fontSize = "larger";
-      }
-      else if (document.getElementById("option3").checked == true) {
-        document.getElementById("demo").style.fontSize = "xx-small";
-      }
-    }
-
-
-    function DarkBlueBack() {
-      document.getElementById("demo").style = "background-color: rgba(12, 6, 68, 0.822);"
-      document.getElementById("demo1").style = "color:rgba(179, 189, 209, 0.952);"
-
-      current_colour = 2;
-
-      if (document.getElementById("option1").checked == true) {
-        document.getElementById("demo").style.fontSize = "xx-large";
-      }
-      else if (document.getElementById("option2").checked == true) {
-        document.getElementById("demo").style.fontSize = "larger";
-      }
-      else if (document.getElementById("option3").checked == true) {
-        document.getElementById("demo").style.fontSize = "xx-small";
-      }
-    }
-
-    function GrayBack() {
-      document.getElementById("demo").style = "background-color: rgba(192, 189, 212, 0.822);"
-      document.getElementById("demo1").style = "color:rgba(13, 14, 13, 0.911);"
-
-      current_colour = 3;
-
-      if (document.getElementById("option1").checked == true) {
-        document.getElementById("demo").style.fontSize = "xx-large";
-      }
-      else if (document.getElementById("option2").checked == true) {
-        document.getElementById("demo").style.fontSize = "larger";
-      }
-      else if (document.getElementById("option3").checked == true) {
-        document.getElementById("demo").style.fontSize = "xx-small";
-      }
-    }
-
-
-
-    /* ...................................................................................................*/
-
-    function Large() {
-      document.getElementById("demo").style.fontSize = "xx-large";
-      current_size = 2;
-    }
-
-    function Small() {
-      current_size = 0;
-      document.getElementById("demo").style.fontSize = "xx-small";
-    }
-
-    function Origin() {
-      document.getElementById("demo").style.fontSize = "initial";
-    }
-
-    function Medium() {
-      current_size = 1;
-      document.getElementById("demo").style.fontSize = "larger";
-    }
-
-    function Smaller() {
-      document.getElementById("demo").style.fontSize = "smaller";
-    }
-
-
-
-    /* ...................................................................................................*/
-
-    function DarkText() {
-      document.getElementById("demo1").style = "color:rgba(13, 14, 13, 0.911);"
-    }
-
-    function BlueText() {
-      document.getElementById("demo1").style = "color:rgba(75, 82, 182, 0.952);"
-    }
-
-    function WhiteText() {
-      document.getElementById("demo1").style = "color:rgba(249, 250, 252, 0.952);"
-    }
-
-    function GrayText() {
-      document.getElementById("demo1").style = "color:rgba(179, 189, 209, 0.952);"
-    }
-
-
-    /* ...................................................................................................*/
-
-
-    window.onscroll = function () { scrollFunction() };
-
-    function scrollFunction() {
-      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        document.getElementById("myBtn").style.display = "block";
-      } else {
-        document.getElementById("myBtn").style.display = "none";
-      }
-    }
-
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.documentElement.scrollTop = 0;
-    }
+ /* .........................................DONE..........................................................*/
 
     $(document).ready(function () {
-      console.log("im here");
+      //console.log("im here");
       $("#savebut").click(function () {
-        console.log("click");
+        //console.log("click");
         $.ajax({
           type: "POST",
           url: "/article_settings",
@@ -501,15 +503,18 @@
       });
     });
 
+   
+
   </script>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-
-
 
 </body>
 
